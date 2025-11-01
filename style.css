@@ -1,125 +1,242 @@
-/* 1. Centralized Color Definitions using CSS Variables (Custom Properties) */
-:root {
-    /* Main Page Background (Unchanged) */
-    --color-primary-red: #EF233C; 
-    
-    /* --- NEW NAVIGATION COLORS --- */
-    --color-nav-background: #FFF2E6;    /* Navigation Bar Background */
-    --color-text-main: #0C0F0A;         /* Navigation Link Text Color */
-    --color-separator: #DDB27E;         /* Separator Line & Active Background Color */
-    --color-hover-bg: #FFDFC2;          /* Hover Background Color (used for stroke) */
-    /* --- END NEW NAVIGATION COLORS --- */
-    
-    --color-shadow: rgba(0, 0, 0, 0.25); /* Shadow (Unchanged) */
-}
+        :root {
+            /* Main Page Background (Unchanged) */
+            --color-primary-red: #EF233C; 
+            
+            /* --- NEW NAVIGATION COLORS --- */
+            --color-nav-background: #FFF2E6;    /* Navigation Bar Background */
+            --color-text-main: #0C0F0A;         /* Navigation Link Text Color */
+            --color-separator: #DDB27E;         /* Separator Line & Active Background Color */
+            --color-hover-bg: #FFDFC2;          /* Hover Background Color (used for stroke) */
+            /* --- END NEW NAVIGATION COLORS --- */
+            
+            --color-shadow: #65441B; /* UPDATED Shadow Color */
+        }
 
-/* Setting the requested background color */
-body {
-    background-color: var(--color-primary-red);
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: var(--color-text-main); /* Adjusted body text default */
-    min-height: 100vh;
-    margin: 0;
-    padding-bottom: 0; 
-}
+        /* Setting the requested background color */
+        body {
+            background-color: var(--color-primary-red);
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--color-text-main); /* Adjusted body text default */
+            min-height: 100vh;
+            margin: 0;
+            padding-bottom: 0; 
+            display: flex; /* Use flexbox for centering content-box */
+            flex-direction: column; /* Stack children vertically */
+            justify-content: center; /* Center content-box vertically */
+            align-items: center; /* Center content-box horizontally */
+        }
 
-/* --- Navigation Styles --- */
-.nav-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 0; 
-    z-index: 1000;
-}
+        /* --- Content Box Styles --- */
+        .content-box {
+            background-color: var(--color-nav-background);
+            max-width: 800px;
+            width: 90%; /* Responsive width */
+            height: 450px; /* Fixed height for now */
+            border-radius: 10px;
+            border: 3px solid var(--color-hover-bg); /* Stroke color */
+            
+            /* SHADOW: 9px vertical offset */
+            box-shadow: 0 9px 0 0 var(--color-shadow); 
+            
+            margin-bottom: 20px; /* Space above nav bar */
+            flex-shrink: 0; /* Prevent it from shrinking */
+            
+            /* Ensure children respect the rounded top corners */
+            overflow: hidden; 
+        }
+        
+        /* --- Content Header Styles (New) --- */
+        .content-header {
+            background-color: var(--color-hover-bg); /* FFDFC2 */
+            height: 40px; /* Fixed height for the header bar */
+            width: 100%;
+            /* BORDER REMOVED */
+            /* Flex properties for internal layout */
+            display: flex;
+            justify-content: space-between; /* Pushes content to edges */
+            align-items: center; /* Centers content vertically */
+            /* REDUCED PADDING */
+            padding: 0 6px; 
+            box-sizing: border-box; /* Include padding in height calculation */
+        }
+        
+        /* --- Header Left Styles (Updated) --- */
+        .header-left {
+            background-color: var(--color-separator); /* DDB27E */
+            height: 30px; 
+            
+            /* NEW STYLES: All-around 6px radius, inline-flex to collapse width */
+            border-radius: 6px; 
+            display: inline-flex;
+            
+            /* INCREASED PADDING TO PREVENT TEXT WRAPPING */
+            padding: 0 20px; 
+            margin-right: 15px; /* Space to the right of this element */
 
-.nav-list {
-    /* CONTAINER STYLES */
-    background-color: var(--color-nav-background); /* New Nav Background */
-    max-width: 650px; 
-    width: 90%; 
-    margin: 0 auto; 
-    
-    /* Rounded top, flat bottom */
-    border-radius: 16px 16px 0 0; 
-    
-    /* UPDATED BORDER/STROKE WEIGHT TO 3PX */
-    border: 3px solid var(--color-hover-bg); 
-    border-bottom: none; /* Prevents border on the bottom edge */
-    
-    /* FLEXBOX AND LAYOUT */
-    display: flex;
-    justify-content: space-around; 
-    list-style: none;
-    padding: 0;
-    height: 55px; 
-    overflow: hidden; 
-}
+            /* ENSURE TEXT DOES NOT WRAP TO A NEW LINE */
+            white-space: nowrap; 
+            
+            /* Styling for Placeholder Text */
+            font-family: 'Doto', monospace;
+            font-weight: 600; 
+            font-size: 0.9rem;
+            color: var(--color-shadow); 
+            
+            /* Center the text */
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* --- Header Right Styles (Updated for Marquee Effect) --- */
+        .header-right {
+            /* Clip the content at this boundary */
+            overflow: hidden; 
+            /* Allow it to take up the available width */
+            flex-grow: 1; 
+            height: 100%; 
+            display: flex;
+            align-items: center;
+            /* Optional: Add slight padding to the right edge */
+            padding-right: 6px;
+        }
 
-/* Offset the border width slightly so links align visually inside */
-.nav-list {
-    /* Keep height consistent */
-    height: 55px; 
-}
-
-
-.nav-item {
-    display: flex; 
-    align-items: center; 
-    /* Separator Line Color Update */
-    border-right: 1px solid var(--color-separator); 
-    flex-grow: 1; 
-    flex-basis: 0; /* Ensures all items are exactly the same width */
-    text-align: center;
-}
-
-/* Remove the border from the very last item */
-.nav-item:last-child {
-    border-right: none;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--color-text-main); /* New Text Color */
-    /* UPDATED FONT STYLES */
-    font-family: 'Doto', monospace; /* Applying Doto font */
-    font-weight: 900; /* Set to 900 as requested */
-    text-transform: none; /* Removed capitalization */
-    
-    padding: 0; 
-    letter-spacing: 0.5px;
-    
-    /* FONT SIZE ADJUSTMENT */
-    font-size: 0.9rem; 
-    
-    transition: background-color 0.3s;
-    height: 100%; 
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Hover State: Background changes, text color remains the same */
-.nav-link:hover {
-    background-color: var(--color-hover-bg); 
-    color: var(--color-text-main); /* Ensure text color does not change */
-}
-
-/* Active State: Background color changes to the separator color */
-.nav-item.active .nav-link {
-    background-color: var(--color-separator); /* DDB27E */
-}
+        /* --- Scrolling Text Container --- */
+        .scroll-text-container {
+            /* CRITICAL: Set to flex and fit-content to size to the total width of the duplicated content */
+            display: flex; 
+            width: fit-content; 
+            white-space: nowrap; 
+            /* Apply the scrolling animation - Increased duration */
+            animation: scroll-text 30s linear infinite;
+            /* Styling for the text */
+            font-family: 'Doto', monospace;
+            font-weight: 600; 
+            font-size: 0.9rem;
+            color: var(--color-text-main); /* Default dark text color */
+        }
+        
+        /* New Marker Span Style */
+        .marker {
+            color: var(--color-primary-red);
+            font-weight: 900;
+            font-size: 1.1rem; /* Make it slightly bigger to stand out */
+            padding: 0 10px;
+        }
+        
+        /* Keyframe animation for seamless loop of duplicated content */
+        @keyframes scroll-text {
+            0% {
+                transform: translateX(0); /* Start at the beginning */
+            }
+            100% {
+                /* Scroll exactly the width of the first complete message cycle (50% of the total duplicated content width) */
+                transform: translateX(-50%); 
+            }
+        }
 
 
-/* Responsive adjustment for smaller screens */
-@media (max-width: 500px) {
-     .nav-list {
-        border-radius: 12px 12px 0 0; 
-    }
-    .nav-link {
-        /* FONT SIZE ADJUSTMENT FOR MOBILE */
-        font-size: 0.75rem;
-        letter-spacing: 0;
-    }
-}
+        /* --- Navigation Styles (Omitted for brevity, unchanged) --- */
+        .nav-bar {
+            position: fixed; /* Still fixed at bottom */
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 0; 
+            z-index: 1000;
+        }
+
+        .nav-list {
+            /* CONTAINER STYLES */
+            background-color: var(--color-nav-background); /* New Nav Background */
+            max-width: 650px; 
+            width: 90%; 
+            margin: 0 auto; 
+            
+            /* Rounded top, flat bottom */
+            border-radius: 16px 16px 0 0; 
+            
+            /* UPDATED BORDER/STROKE WEIGHT TO 3PX */
+            border: 3px solid var(--color-hover-bg); 
+            border-bottom: none; /* Prevents border on the bottom edge */
+            
+            /* FLEXBOX AND LAYOUT */
+            display: flex;
+            justify-content: space-around; 
+            list-style: none;
+            padding: 0;
+            height: 55px; 
+            overflow: hidden; 
+        }
+
+        /* Offset the border width slightly so links align visually inside */
+        .nav-list {
+            /* Keep height consistent */
+            height: 55px; 
+        }
+
+
+        .nav-item {
+            display: flex; 
+            align-items: center; 
+            /* Separator Line Color Update */
+            border-right: 1px solid var(--color-separator); 
+            flex-grow: 1; 
+            flex-basis: 0; /* Ensures all items are exactly the same width */
+            text-align: center;
+        }
+
+        /* Remove the border from the very last item */
+        .nav-item:last-child {
+            border-right: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-text-main); /* New Text Color */
+            /* UPDATED FONT STYLES */
+            font-family: 'Doto', monospace; /* Applying Doto font */
+            font-weight: 900; /* Set to 900 as requested */
+            text-transform: none; /* Removed capitalization */
+            
+            padding: 0; 
+            letter-spacing: 0.5px;
+            
+            /* FONT SIZE ADJUSTMENT */
+            font-size: 0.9rem; 
+            
+            transition: background-color 0.3s;
+            height: 100%; 
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Hover State: Background changes, text color remains the same */
+        .nav-link:hover {
+            background-color: var(--color-hover-bg); 
+            color: var(--color-text-main); /* Ensure text color does not change */
+        }
+
+        /* Active State: Background color changes to the separator color */
+        .nav-item.active .nav-link {
+            background-color: var(--color-separator); /* DDB27E */
+        }
+
+
+        /* Responsive adjustment for smaller screens */
+        @media (max-width: 500px) {
+             .nav-list {
+                border-radius: 12px 12px 0 0; 
+            }
+            .nav-link {
+                /* FONT SIZE ADJUSTMENT FOR MOBILE */
+                font-size: 0.75rem;
+                letter-spacing: 0;
+            }
+
+            .content-box {
+                margin-bottom: 10px; /* Less space on mobile */
+                height: 300px; /* Adjust height for smaller screens */
+            }
+        }

@@ -5,16 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blank Canvas</title>
     
-    <!-- Load Doto Font (Weight 900) from Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Load Doto Font (Weights 600 & 900) from Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@900&display=swap" rel="stylesheet">
+    <!-- UPDATED FONT LINK TO INCLUDE WEIGHT 600 -->
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@600;900&display=swap" rel="stylesheet">
     
     <!-- LINKING EXTERNAL STYLESHEET -->
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
+
+    <!-- Main Content Box --><div class="content-box">
+        <div class="content-header">
+            <!-- ADDED ID FOR JAVASCRIPT TARGETING -->
+            <div class="header-left" id="live-time">
+                <!-- Placeholder text will be replaced by JavaScript -->
+                Loading Time...
+            </div>
+            <div class="header-right">
+                <!-- Scrolling text container with duplicated content for seamless loop -->
+                <div class="scroll-text-container">
+                    <!-- Cycle 1 -->
+                    Welcome to my new website! :) It is currently in development, So check back in here and there to see live updates.
+                    <span class="marker">•</span>
+                    If you're reading this, you're a stinky boy / girl :P
+                    <span class="marker">•</span>
+                    <!-- Cycle 2 (Duplicate for Seamless Loop) -->
+                    Welcome to my new website! :) It is currently in development, So check back in here and there to see live updates.
+                    <span class="marker">•</span>
+                    If you're reading this, you're a stinky boy / girl :P
+                </div>
+            </div>
+        </div>
+        <!-- Main content area -->
+    </div>
 
     <nav class="nav-bar">
         <ul class="nav-list">
@@ -25,11 +50,5 @@
             <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
-
-    <!-- This space is completely clear for your main content. -->
-    
-    <!-- LINKING EXTERNAL JAVASCRIPT -->
-    <script src="script.js"></script>
-
 </body>
 </html>
