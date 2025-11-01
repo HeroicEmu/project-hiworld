@@ -12,19 +12,15 @@
             --color-shadow: #65441B; /* UPDATED Shadow Color */
 
                         /* --- FONT VARIABLES --- */
-            --font-cabinet-grotesk: 'CabinetGrotesk-Variable', sans-serif; /* NEW FONT VARIABLE */
+            --font-cabinet-grotesk-extrabold: 'CabinetGrotesk-Extrabold', sans-serif; /* NEW FONT VARIABLE */
 
             /* Desktop Sizes */
-            --font-size-h1-desktop: 167px;
-            --font-size-h2-desktop: 48px;
+            --font-size-h1-desktop: 5rem;
+            --font-size-h2-desktop: 1rem;
             
             /* Mobile Sizes */
             --font-size-h1-mobile: 70px;
             --font-size-h2-mobile: 24px;
-
-                        /* Font Weights */
-            --font-weight-h1: 900;
-            --font-weight-h2: 600;
         }
 
         /* Setting the requested background color */
@@ -172,8 +168,7 @@
         .text-section h1 {
             /* Text for "Sharun" - big and bold */
             font-size: var(--font-size-h1-desktop); 
-            font-weight: var(--font-weight-h1); /* USING VARIABLE */
-            font-family: var(--font-cabinet-grotesk); /* NOW EXPLICITLY APPLIED */
+            font-family: var(--font-cabinet-grotesk-extrabold); /* NOW EXPLICITLY APPLIED */
             line-height: 1; /* Tighten up line spacing */
             margin: 0;
             padding: 0;
@@ -182,8 +177,7 @@
         .text-section h2 {
             /* Text for "Hi! I'm" - smaller and lighter */
             font-size: var(--font-size-h2-desktop); 
-            font-weight: var(--font-weight-h2); /* USING VARIABLE */
-            font-family: var(--font-cabinet-grotesk); /* NOW EXPLICITLY APPLIED */
+            font-family: var(--font-cabinet-grotesk-extrabold); /* NOW EXPLICITLY APPLIED */
             line-height: 1;
             margin-bottom: 5px; /* Space between "I'm" and "Sharun" */
             padding: 0;
