@@ -253,13 +253,10 @@
             opacity: 0;
             z-index: 510; 
             transition: opacity 0.3s ease; 
-            max-width: 650px; 
-            width: 80%;
-            height: 80%; 
+            max-width: 800px;
+            width: 90%;
+            height: 620px;
             margin-bottom: 0;
-            height: auto;
-            min-height: 200px;
-            max-height: 90vh;
         }
         
         .window-overlay.active .modal-functional-box {
