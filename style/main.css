@@ -157,7 +157,7 @@
         
         /* Styling for the video element (uses the same styling as the old image) */
         .main-logo {
-            max-width: 80px; /* Reduced logo size to match mock-up visual balance */
+            max-width: 125px; /* Reduced logo size to match mock-up visual balance */
             height: auto;
             
             /* Add this to make sure the video does not show standard controls */
