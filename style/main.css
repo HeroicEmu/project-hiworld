@@ -148,16 +148,21 @@
             }
         }
 
-                /* --- Logo Section Styles (New) --- */
+        /* --- Logo Section Styles --- */
         .logo-section {
-            padding-top: 45px; 
-            padding-bottom: 25px; 
-            text-align: center; /* Centers the image */
+            padding-top: 25px; 
+            padding-bottom: 20px; /* Reduced bottom padding to bring text closer */
+            text-align: center; /* Centers the image/video */
         }
-
+        
+        /* Styling for the video element (uses the same styling as the old image) */
         .main-logo {
-            max-width: 80px; 
+            max-width: 80px; /* Reduced logo size to match mock-up visual balance */
             height: auto;
+            
+            /* Add this to make sure the video does not show standard controls */
+            display: block; 
+            margin: 0 auto;
         }
 
                 /* --- Text Section Styles (NEW) --- */
