@@ -247,8 +247,8 @@
 
         .modal-functional-box {
             position: absolute; 
-            top: 40%;
-            left: 38%;
+            top: 10%;
+            left: 15%;
             transform: none; 
             opacity: 0;
             z-index: 510; 
