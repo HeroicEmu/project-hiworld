@@ -4,37 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hi! I'm Sharun. Welcome to my website!</title>
-
-        <!-- Favicon link: Change 'assets/icons/favicon.ico' to your actual icon file path -->
     <link rel="icon" href="assets/icon/favicon.ico" type="image/x-icon">
-    
-    <!-- Load Doto Font (Weights 600 & 900) from Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- UPDATED FONT LINK TO INCLUDE WEIGHT 600 -->
     <link href="https://fonts.googleapis.com/css2?family=Doto:wght@600;900&display=swap" rel="stylesheet">
-    
-    <!-- LINKING EXTERNAL STYLESHEET -->
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/cabinet-grotesk.css">
 
 </head>
 <body>
 
-    <!-- Main Content Box --><div class="content-box">
+    <div class="content-box">
         <div class="content-header">
-            <!-- ADDED ID FOR JAVASCRIPT TARGETING -->
             <div class="header-left" id="live-time">
                 &nbsp;
             </div>
             <div class="header-right">
-                <!-- Scrolling text container with duplicated content for seamless loop -->
                 <div class="scroll-text-container">
-                    <!-- Cycle 1 -->
                     Welcome to my new website! :) It is currently in development, So check back in here and there to see live updates.
                     <span class="marker">•</span>
                     If you're reading this, you're a stinky boy / girl :P
                     <span class="marker">•</span>
-                    <!-- Cycle 2 (Duplicate for Seamless Loop) -->
                     Welcome to my new website! :) It is currently in development, So check back in here and there to see live updates.
                     <span class="marker">•</span>
                     If you're reading this, you're a stinky boy / girl :P
@@ -42,31 +32,26 @@
             </div>
         </div>
                 
-        <!-- LOGO SECTION -->
         <div class="logo-section">
-            <!-- REPLACED IMG WITH VIDEO: ADD YOUR VIDEO FILE PATH HERE -->
             <video 
-                src="assets/logo/logo-spin.mp4" 
                 class="main-logo"
                 autoplay
                 loop
                 muted
                 playsinline
                 alt="Spinning Logo Animation"
+                poster="assets/logo/logo.svg"
             >
-                <!-- Fallback content for browsers that don't support the video tag or format -->
+                <source src="assets/logo/logo-spin.webm" type="video/webm">
+                <source src="assets/logo/logo-spin.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         
-                <!-- NEW TEXT SECTION -->
         <div class="text-section">
-            <!-- H2 is 48px -->
             <h2>Hi! I'm</h2>
-            <!-- H1 is 167px -->
             <h1>Sharun</h1>
 
-                        <!-- NEW H3 ADDED HERE -->
             <h3>
                 <span>I'm a </span>
                 <span class="highlight">Graphic Designer</span>
@@ -75,7 +60,6 @@
                 <span>.</span>
             </h3>
         </div>
-        <!-- Main content area will follow the logo-section -->
     </div>
 
     <nav class="nav-bar">
@@ -88,7 +72,6 @@
         </ul>
     </nav>
 
-    <!-- Linking to external JavaScript file -->
     <script src="script.js"></script>
 
 </body>
