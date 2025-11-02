@@ -1,213 +1,159 @@
         :root {
-            /* Main Page Background (Unchanged) */
             --color-primary-red: #EF233C; 
-            
-            /* --- NEW NAVIGATION COLORS --- */
-            --color-nav-background: #FFF2E6;    /* Navigation Bar Background */
-            --color-text-main: #0C0F0A;         /* Navigation Link Text Color */
-            --color-separator: #DDB27E;         /* Separator Line & Active Background Color */
-            --color-hover-bg: #FFDFC2;          /* Hover Background Color (used for stroke) */
-            /* --- END NEW NAVIGATION COLORS --- */
-            
-            --color-shadow: #65441B; /* UPDATED Shadow Color */
-
-                        /* --- FONT VARIABLES --- */
+            --color-nav-background: #FFF2E6;
+            --color-text-main: #0C0F0A;
+            --color-separator: #DDB27E;
+            --color-hover-bg: #FFDFC2;           
+            --color-shadow: #65441B;
             --font-cabinet-grotesk-extrabold: 'CabinetGrotesk-Extrabold', sans-serif;
             --font-cabinet-grotesk-bold: 'CabinetGrotesk-Bold', sans-serif;
-
-            /* Desktop Sizes */
             --font-size-h1-desktop: 7rem;
             --font-size-h2-desktop: 1.6rem;
-            --font-size-h3-desktop: 28px; /* NEW H3 SIZE */
-
-            /* Mobile Sizes */
+            --font-size-h3-desktop: 28px;
             --font-size-h1-mobile: 70px;
             --font-size-h2-mobile: 24px;
-            --font-size-h3-mobile: 18px; /* NEW H3 MOBILE SIZE */
+            --font-size-h3-mobile: 18px;
         }
 
-        /* Setting the requested background color */
         body {
             background-color: var(--color-primary-red);
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            color: var(--color-text-main); /* Adjusted body text default */
+            color: var(--color-text-main);
             min-height: 100vh;
             margin: 0;
             padding-bottom: 0; 
-            display: flex; /* Use flexbox for centering content-box */
-            flex-direction: column; /* Stack children vertically */
-            justify-content: center; /* Center content-box vertically */
-            align-items: center; /* Center content-box horizontally */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* --- Content Box Styles --- */
         .content-box {
             background-color: var(--color-nav-background);
             max-width: 800px;
-            width: 90%; /* Responsive width */
-            height: 450px; /* Fixed height for now */
+            width: 90%;
+            height: 450px;
             border-radius: 10px;
-            border: 3px solid var(--color-hover-bg); /* Stroke color */
-            
-            /* SHADOW: 9px vertical offset */
+            border: 3px solid var(--color-hover-bg);
             box-shadow: 0 9px 0 0 var(--color-shadow); 
             
-            margin-bottom: 20px; /* Space above nav bar */
-            flex-shrink: 0; /* Prevent it from shrinking */
-            
-            /* Ensure children respect the rounded top corners */
+            margin-bottom: 20px;
+            flex-shrink: 0;
             overflow: hidden; 
         }
         
-        /* --- Content Header Styles (New) --- */
         .content-header {
-            background-color: var(--color-hover-bg); /* FFDFC2 */
-            height: 40px; /* Fixed height for the header bar */
+            background-color: var(--color-hover-bg);
+            height: 40px;
             width: 100%;
-            /* BORDER REMOVED */
-            /* Flex properties for internal layout */
             display: flex;
-            justify-content: space-between; /* Pushes content to edges */
-            align-items: center; /* Centers content vertically */
-            /* REDUCED PADDING */
+            justify-content: space-between;
+            align-items: center;
             padding: 0 6px; 
-            box-sizing: border-box; /* Include padding in height calculation */
+            box-sizing: border-box;
         }
         
-        /* --- Header Left Styles (Updated) --- */
         .header-left {
-            background-color: var(--color-separator); /* DDB27E */
+            background-color: var(--color-separator);
             height: 30px; 
-            
-            /* NEW STYLES: All-around 6px radius, inline-flex to collapse width */
             border-radius: 6px; 
             display: inline-flex;
-            
-            /* INCREASED PADDING TO PREVENT TEXT WRAPPING */
             padding: 0 20px; 
-            margin-right: 15px; /* Space to the right of this element */
-
-            /* ENSURE TEXT DOES NOT WRAP TO A NEW LINE */
+            margin-right: 15px;
             white-space: nowrap; 
-            
-            /* Styling for Placeholder Text */
             font-family: 'Doto', monospace;
             font-weight: 600; 
             font-size: 0.9rem;
             color: var(--color-shadow); 
-            
-            /* Center the text */
             justify-content: center;
             align-items: center;
         }
         
-        /* --- Header Right Styles (Updated for Marquee Effect) --- */
         .header-right {
-            /* Clip the content at this boundary */
-            overflow: hidden; 
-            /* Allow it to take up the available width */
+            overflow: hidden;
             flex-grow: 1; 
             height: 100%; 
             display: flex;
             align-items: center;
-            /* Optional: Add slight padding to the right edge */
             padding-right: 6px;
         }
 
-        /* --- Scrolling Text Container --- */
         .scroll-text-container {
-            /* CRITICAL: Set to flex and fit-content to size to the total width of the duplicated content */
             display: flex; 
             width: fit-content; 
             white-space: nowrap; 
-            /* Apply the scrolling animation - Increased duration */
             animation: scroll-text 30s linear infinite;
-            /* Styling for the text */
             font-family: 'Doto', monospace;
             font-weight: 600; 
             font-size: 0.9rem;
-            color: var(--color-text-main); /* Default dark text color */
+            color: var(--color-text-main);
         }
         
-        /* New Marker Span Style */
         .marker {
             color: var(--color-primary-red);
             font-weight: 900;
-            font-size: 1.1rem; /* Make it slightly bigger to stand out */
+            font-size: 1.1rem;
             padding: 0 10px;
         }
         
-        /* Keyframe animation for seamless loop of duplicated content */
         @keyframes scroll-text {
             0% {
-                transform: translateX(0); /* Start at the beginning */
+                transform: translateX(0);
             }
             100% {
-                /* Scroll exactly the width of the first complete message cycle (50% of the total duplicated content width) */
                 transform: translateX(-50%); 
             }
         }
 
-        /* --- Logo Section Styles --- */
         .logo-section {
             padding-top: 25px; 
-            padding-bottom: 20px; /* Reduced bottom padding to bring text closer */
-            text-align: center; /* Centers the image/video */
+            padding-bottom: 20px;
+            text-align: center;
         }
         
-        /* Styling for the video element (uses the same styling as the old image) */
         .main-logo {
-            max-width: 125px; /* Reduced logo size to match mock-up visual balance */
+            max-width: 125px;
             height: auto;
-            
-            /* Add this to make sure the video does not show standard controls */
             display: block; 
             margin: 0 auto;
         }
 
-                /* --- Text Section Styles (NEW) --- */
         .text-section {
             text-align: center;
-            /* font-family is now explicitly applied to h1 and h2 below */
-            /* Push the text down slightly using negative margin on the logo */
             margin-top: -10px; 
         }
 
         .text-section h1 {
-            /* Text for "Sharun" - big and bold */
             font-size: var(--font-size-h1-desktop); 
-            font-family: var(--font-cabinet-grotesk-extrabold); /* NOW EXPLICITLY APPLIED */
-            line-height: 1; /* Tighten up line spacing */
+            font-family: var(--font-cabinet-grotesk-extrabold);
+            line-height: 1;
             margin: 0;
             padding: 0;
         }
         
         .text-section h2 {
-            /* Text for "Hi! I'm" - smaller and lighter */
             font-size: var(--font-size-h2-desktop); 
-            font-family: var(--font-cabinet-grotesk-extrabold); /* NOW EXPLICITLY APPLIED */
+            font-family: var(--font-cabinet-grotesk-extrabold);
             line-height: 1;
-            margin-bottom: -10px; /* Space between "I'm" and "Sharun" */
+            margin-bottom: -10px;
             padding: 0;
         }
 
-                /* --- H3 Styles (NEW) --- */
         .text-section h3 {
             font-family: var(--font-cabinet-grotesk-bold);
             font-size: var(--font-size-h3-desktop);
             line-height: 1.2;
-            margin: 10px 0 0; /* Space below H1 */
+            margin: 10px 0 0;
             padding: 0;
-            color: var(--color-text-main); /* Default text color for non-highlighted spans */
+            color: var(--color-text-main);
         }
         
         .text-section h3 .highlight {
-            color: var(--color-primary-red); /* Highlight color */
+            color: var(--color-primary-red);
         }
 
-        /* --- Navigation Styles (Omitted for brevity, unchanged) --- */
         .nav-bar {
-            position: fixed; /* Still fixed at bottom */
+            position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
@@ -216,20 +162,13 @@
         }
 
         .nav-list {
-            /* CONTAINER STYLES */
-            background-color: var(--color-nav-background); /* New Nav Background */
+            background-color: var(--color-nav-background);
             max-width: 650px; 
             width: 90%; 
-            margin: 0 auto; 
-            
-            /* Rounded top, flat bottom */
+            margin: 0 auto;
             border-radius: 16px 16px 0 0; 
-            
-            /* UPDATED BORDER/STROKE WEIGHT TO 3PX */
             border: 3px solid var(--color-hover-bg); 
-            border-bottom: none; /* Prevents border on the bottom edge */
-            
-            /* FLEXBOX AND LAYOUT */
+            border-bottom: none;
             display: flex;
             justify-content: space-around; 
             list-style: none;
@@ -238,9 +177,7 @@
             overflow: hidden; 
         }
 
-        /* Offset the border width slightly so links align visually inside */
         .nav-list {
-            /* Keep height consistent */
             height: 55px; 
         }
 
@@ -248,30 +185,24 @@
         .nav-item {
             display: flex; 
             align-items: center; 
-            /* Separator Line Color Update */
             border-right: 1px solid var(--color-separator); 
             flex-grow: 1; 
-            flex-basis: 0; /* Ensures all items are exactly the same width */
+            flex-basis: 0;
             text-align: center;
         }
 
-        /* Remove the border from the very last item */
         .nav-item:last-child {
             border-right: none;
         }
 
         .nav-link {
             text-decoration: none;
-            color: var(--color-text-main); /* New Text Color */
-            /* UPDATED FONT STYLES */
-            font-family: 'Doto', monospace; /* Applying Doto font */
-            font-weight: 900; /* Set to 900 as requested */
-            text-transform: none; /* Removed capitalization */
-            
+            color: var(--color-text-main);
+            font-family: 'Doto', monospace;
+            font-weight: 900;
+            text-transform: none;
             padding: 0; 
             letter-spacing: 0.5px;
-            
-            /* FONT SIZE ADJUSTMENT */
             font-size: 0.9rem; 
             
             transition: background-color 0.3s;
@@ -282,31 +213,26 @@
             align-items: center;
         }
 
-        /* Hover State: Background changes, text color remains the same */
         .nav-link:hover {
             background-color: var(--color-hover-bg); 
-            color: var(--color-text-main); /* Ensure text color does not change */
+            color: var(--color-text-main);
         }
 
-        /* Active State: Background color changes to the separator color */
         .nav-item.active .nav-link {
-            background-color: var(--color-separator); /* DDB27E */
+            background-color: var(--color-separator);
         }
 
-
-        /* Responsive adjustment for smaller screens */
         @media (max-width: 500px) {
              .nav-list {
                 border-radius: 12px 12px 0 0; 
             }
             .nav-link {
-                /* FONT SIZE ADJUSTMENT FOR MOBILE */
                 font-size: 0.75rem;
                 letter-spacing: 0;
             }
 
             .content-box {
-                margin-bottom: 10px; /* Less space on mobile */
-                height: 300px; /* Adjust height for smaller screens */
+                margin-bottom: 10px;
+                height: 300px;
             }
         }
