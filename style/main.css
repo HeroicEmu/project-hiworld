@@ -195,16 +195,18 @@
             border-right: none;
         }
 
-        .nav-link {
+        .nav-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
             text-decoration: none;
-            color: var(--color-text-main);
-            font-family: 'Doto', monospace;
-            font-weight: 900;
-            text-transform: none;
+            color: var(--color-text-main); 
+            font-family: var(--font-cabinet-grotesk); 
+            font-weight: 900; 
+            text-transform: none; 
             padding: 0; 
             letter-spacing: 0.5px;
             font-size: 0.9rem; 
-            
             transition: background-color 0.3s;
             height: 100%; 
             width: 100%;
@@ -213,13 +215,12 @@
             align-items: center;
         }
 
-        .nav-link:hover {
+        .nav-btn:hover {
             background-color: var(--color-hover-bg); 
-            color: var(--color-text-main);
         }
 
-        .nav-item.active .nav-link {
-            background-color: var(--color-separator);
+        .nav-item.active .nav-btn {
+            background-color: var(--color-separator); 
         }
 
                 .window-overlay {
